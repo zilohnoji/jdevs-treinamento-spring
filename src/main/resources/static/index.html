@@ -33,11 +33,14 @@
 				<button type="button" class="btn" onclick="saveUser()">Save</button>
 				<button type="button" class="btn new"
 					onclick="document.getElementById('formRegister').reset()">New</button>
-				<button type="button" style="background-color: red; border: none;" class="btn search" id="searchButton">Search</button>
+
+				<button type="button" style="background-color: red; border: none;" class="btn search"
+					id="searchButton">Search</button>
 			</form>
 		</div>
-		<div class="modal">
-			
+		<div id="modal">
+
+
 		</div>
 	</div>
 
@@ -45,7 +48,6 @@
 		integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
 	<script>
-
 		function saveUser() {
 			let id = $("#id").val()
 			let name = $("#name").val()
@@ -69,6 +71,21 @@
 				alert("Error on save:" + xhr.responseText)
 			});
 		}
+
+
+		function changeDisplay() {
+			var modal = document.getElementById("modal");
+			if (modal.style.display === "none"){
+				modal.style.display = "block";
+			} else{
+				modal.style.display = "none";
+			}
+
+
+		}
+
+		var searchButton = document.getElementById("searchButton");
+		searchButton.addEventListener("click", changeDisplay);
 	</script>
 
 </body>
