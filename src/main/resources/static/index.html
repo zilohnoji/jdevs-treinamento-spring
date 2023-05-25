@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+
+	<header>
+		<h3 class="title">Spring-boot rest-api crud complete of dev treinamento</h3>
+	</header>
+
+	<div class="center">
+		<div class="formContainer">
+			<form action="" id="formRegister">
+
+				<div class="form-group">
+					<input type="text" class="form-control" id="id" readonly="readonly" placeholder="ID">
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="focus form-control" id="name" placeholder="Name" required="required">
+				</div>
+
+				<div class="form-group">
+					<input type="number" class="focus form-control" id="age" placeholder="Age">
+				</div>
+
+				<button type="button" class="btn" onclick="saveUser()">Save</button>
+				<button type="button" class="btn new"
+					onclick="document.getElementById('formRegister').reset()">New</button>
+				<button type="button" style="background-color: red; border: none;" class="btn search" id="searchButton">Search</button>
+			</form>
+		</div>
+		<div class="modal">
+			
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+		integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+	<script>
+
+		function saveUser() {
+			let id = $("#id").val()
+			let name = $("#name").val()
+			let age = $("#age").val()
+
+			$.ajax({
+				method: "POST",
+				url: "user/insert",
+				data: JSON.stringify({
+					id: id,
+					name: name,
+					age: age
+				}),
+				contentType: "application/json; charset=utf-8",
+				success: function (response) {
+					$("#id").val(response.id);
+					alert("Save with success!")
+				}
+
+			}).fail(function (xhr, status, errorThrow) {
+				alert("Error on save:" + xhr.responseText)
+			});
+		}
+	</script>
+
+</body>
+
+</html>

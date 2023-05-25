@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #2e2e4d;
+}
+
+label {
+  font-size: 15px;
+  display: block;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.focus:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+.center {
+  height: 30rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.formContainer {
+  height: 15rem;
+  width: 30rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 5px;
+  background-color: #24232b;
+}
+
+.formRegister {
+  width: 100%;
+  height: 100%;
+}
+
+.form-control {
+  height: 2rem;
+  width: 25rem;
+  outline: none;
+  border-radius: 6px;
+  margin-top: 1rem;
+  padding: 8px;
+  color: black;
+  border: 1px solid gray;
+}
+
+.btn {
+  margin-top: 1rem;
+  width: 3.5rem;
+  height: 1.9rem;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid rgb(2, 89, 219);
+  background-color: rgb(2, 89, 219);
+}
+
+.new {
+  border: none;
+  background-color: gray;
+}
+
+.modal{
+  margin-left: 3rem;
+  height: 15rem;
+  width: 20rem;
+  border-radius: 3px;
+  display: none;
+  background-color: #24232b;
+}
+
+#searchButton:focus + .modal{
+  display: block;
+}
