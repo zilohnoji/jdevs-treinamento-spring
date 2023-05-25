@@ -25,6 +25,6 @@ public class UserService implements GenericService<UserEntity, Long, UserDTO> {
 	/* <-- Personalized Queries --> */
 	
 	public List<UserDTO> findByName(String name) {
-		return repository.findByName(name).stream().map(x -> x.convertFrom()).toList();
+		return repository.findByName(name.toLowerCase()).stream().map(x -> x.convertFrom()).toList();
 	}
 }

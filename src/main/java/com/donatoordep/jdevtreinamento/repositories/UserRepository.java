@@ -11,6 +11,6 @@ import com.donatoordep.jdevtreinamento.entities.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-	@Query(value = "SELECT u FROM UserEntity u WHERE u.name LIKE %?1%")
+	@Query(value = "SELECT u FROM UserEntity u WHERE LOWER(u.name) LIKE %:name%")
 	public List<UserEntity> findByName(String name);
 }
