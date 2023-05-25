@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.donatoordep.jdevtreinamento.dto.UserDTO;
@@ -45,8 +46,8 @@ public class UserEntityController {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.update(dto, dto.getId()));
 	}
 
-	@GetMapping(path = "/{name}")
-	public ResponseEntity<List<UserDTO>> findByName(@PathVariable(name = "name") String name) {
+	@GetMapping
+	public ResponseEntity<List<UserDTO>> findByName(@RequestParam(name = "name") String name) {
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.findByName(name));
 	}
 }

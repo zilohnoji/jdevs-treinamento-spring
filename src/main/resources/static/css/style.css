@@ -52,6 +52,7 @@ button:hover {
   display: flex;
   border-radius: 5px;
   background-color: #24232b;
+  padding-bottom: 8px;
 }
 
 .formRegister {
@@ -86,10 +87,49 @@ button:hover {
 }
 
 #modal {
+  top: 2.5rem;
   margin-left: 3rem;
-  height: 15rem;
+  max-height: 80rem;
   width: 20rem;
   border-radius: 3px;
   display: none;
+  padding: 5px;
   background-color: #24232b;
+  position: relative;
+}
+
+.modal-form {
+  height: 2rem;
+  width: 19rem;
+  outline: none;
+  margin-top: 1rem;
+  padding: 8px;
+  color: white;
+  border: none;
+  background-color: #24232b;
+  border-bottom: 1px solid rgb(38, 123, 75);
+}
+
+.modal-form::placeholder{
+  color: white;
+}
+
+.modal-container {
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.modal-button {
+  width: 10rem;
+  position: relative;
+  top: 1rem;
+  background-color: #0f7012;
+  border: none;
+}
+
+.table {
+  margin-top: 2rem;
+  height: 10rem;
+  width: 100%;
 }

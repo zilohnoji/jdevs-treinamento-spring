@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Insert title here</title>
+	<title>_venus-spring-boot</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -11,7 +11,8 @@
 <body>
 
 	<header>
-		<h3 class="title">Spring-boot rest-api crud complete of dev treinamento</h3>
+		<h3 class="title">Spring-boot rest-api crud complete of dev
+			treinamento</h3>
 	</header>
 
 	<div class="center">
@@ -39,8 +40,27 @@
 			</form>
 		</div>
 		<div id="modal">
+			<h4 class="title">Search user</h4>
+			<form class="modal-container">
+				<input type="text" class="modal-form" id="nameFind" placeholder="Name">
+
+				<button class="btn modal-button" onclick="searchUser()">Send</button>
+			</form>
+			<table class="table" id="tableResults">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Name</th>
+						<th scope="col">Edit</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
 
 
+
+			</table>
 		</div>
 	</div>
 
@@ -72,20 +92,38 @@
 			});
 		}
 
-
 		function changeDisplay() {
 			var modal = document.getElementById("modal");
-			if (modal.style.display === "none"){
+			if (modal.style.display === "none") {
 				modal.style.display = "block";
-			} else{
+			} else {
 				modal.style.display = "none";
 			}
-
 
 		}
 
 		var searchButton = document.getElementById("searchButton");
 		searchButton.addEventListener("click", changeDisplay);
+
+		function searchUser() {
+			let name = $("#nameFind").val()
+
+			$.ajax({
+				method: "GET",
+				url: "/user",
+				data: "?name=" + name,
+				success: function (response) {
+					$("#tableResults > tbody > tr").remove()
+
+					for (let i = 0; i < response.length; i++) {
+						$("#tableResults > tbody").append("<tr><td>" + response[i].id + "</td></tr>")
+					}
+				}
+
+			}).fail(function (xhr, status, errorThrow) {
+				alert("Error on save:" + xhr.responseText)
+			});
+		}
 	</script>
 
 </body>
